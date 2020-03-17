@@ -1,0 +1,16 @@
+.ConverterItem {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 40px;
+    color: #71d55e;
+    box-sizing: border-box;
+    background: #152850;
+    cursor: pointer
+}
+
+.active {
+    background: #71d55e;
+    color: #152850;
+}

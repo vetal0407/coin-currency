@@ -1,0 +1,53 @@
+.CurrencyItem {
+    display: flex;
+    border: 2px solid #15264e;
+    width: 400px;
+    background: #152850;
+    font-size: 24px;
+    box-sizing: border-box;
+}
+
+.CurrencyItem:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(113, 213, 94, 0.5);
+}
+
+.active {
+    box-shadow: 0 0 10px rgba(113, 213, 94, 0.5);
+}
+
+.CurrencyImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 150px;
+    color: #71d55e ;
+}
+.CurrencyImage img{
+    height: 40%;
+    width: 50%;
+}
+
+
+.CurrencyInfo {
+    height: 200px;
+    width: 80%;
+}
+
+.Infotext{
+    padding-top: 30px;
+}
+
+.Infotext strong{
+    padding: 0 15px;
+
+}
+
+#ccy {
+    margin-left: 35px;
+}
+
+
+

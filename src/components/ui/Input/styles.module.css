@@ -1,0 +1,31 @@
+.Input {
+    display: flex;
+}
+
+.ErrorMessage {
+    padding-top: 10px;
+}
+
+.Input strong{
+    color: #71d55e;
+    margin-right: 10px;
+}
+
+.Input input {
+    background: rgba(0, 0, 0, 0);
+    color: #4aabe2;
+    border: 1px solid #0d2141;
+}
+
+.Input input:focus {
+    outline: none;
+}
+
+.invalid input{
+    border: 2px solid red;
+}
+
+.invalid span{
+    color: red;
+    display: flex;
+}
