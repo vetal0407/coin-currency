@@ -1,11 +1,3 @@
-export interface CurrencyI {
-    USD: number
-    UAH: number
-    EUR: number
-    ccy: string
-    image: string
-}
-
 export interface InitialStateI {
     currencies: CurrencyI[] | [],
     value: number | null,
@@ -14,4 +6,12 @@ export interface InitialStateI {
     calculatedValue: number | null,
     isValid: boolean,
     isLoading: boolean
+}
+
+export interface CurrencyI {
+    USD: number
+    UAH: number
+    EUR: number
+    ccy: string
+    image: string
 }

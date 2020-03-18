@@ -1,11 +1,20 @@
 import React from "react"
 import styles from './styles.module.css'
 
-const Input = props => {
+interface Props {
+    isValid: boolean
+
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+const Input: React.FC<Props> = ({
+    isValid,
+    onChange
+}) => {
 
     let cls = [styles.Input]
 
-    if (!props.isValid) cls.push(styles.invalid)
+    if (!isValid) cls.push(styles.invalid)
 
     return (
         <div className={cls.join(' ')}>
@@ -13,10 +22,10 @@ const Input = props => {
             <div>
                 <input
                     type="text"
-                    onChange={props.onChange}
+                    onChange={onChange}
                 />
                 <div className={styles.ErrorMessage}>
-                    {!props.isValid
+                    {!isValid
                         ? <span>Volume must be a number!!!</span>
                         : null
                     }

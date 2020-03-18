@@ -24,6 +24,7 @@
     height: 200px;
     width: 150px;
     color: #71d55e ;
+    box-sizing: border-box;
 }
 .CurrencyImage img{
     height: 40%;

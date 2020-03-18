@@ -7,22 +7,19 @@ import {
     CHANGE_CURRENCY,
     CHANGE_VALUE,
 
-    FetchCurrencyTypes,
-    ChangeCurrencyType,
-    ChangeCoinType,
-    ChangeValueType
+    CurrencyTypes
 } from '../types/currencyTypes'
 import { CurrencyI } from "../../interfaces/currencyInterfaces"
 
-export const getCurrency = (): FetchCurrencyTypes => ({type: GET_CURRENCY})
-export const startCurrency = (): FetchCurrencyTypes => ({type: START_CURRENCY})
-export const successCurrency = (currencies: CurrencyI[]): FetchCurrencyTypes => ({
+export const getCurrency = (): CurrencyTypes => ({type: GET_CURRENCY})
+export const startCurrency = (): CurrencyTypes => ({type: START_CURRENCY})
+export const successCurrency = (currencies: CurrencyI[]): CurrencyTypes => ({
     type: SUCCESS_CURRENCY,
     currencies
 })
 export const errorCurrency = (e: any): void => console.log(e)
 
-export const changeCurrency = (currency: string, volume: number, currentCoin: string, currencies: CurrencyI[]): ChangeCurrencyType => {
+export const changeCurrency = (currency: string, volume: number | null, currentCoin: string, currencies: CurrencyI[]): CurrencyTypes => {
     const calculatedValue = !volume ? null : resultSolver(volume, currency, currentCoin,currencies)
     return {
         type: CHANGE_CURRENCY,
@@ -31,7 +28,7 @@ export const changeCurrency = (currency: string, volume: number, currentCoin: st
     }
 }
 
-export const changeCoin = (coin: string, volume: number, currentCurrency: string, currencies: CurrencyI[]): ChangeCoinType => {
+export const changeCoin = (coin: string, volume: number | null, currentCurrency: string, currencies: CurrencyI[]): CurrencyTypes => {
     const calculatedValue = !volume ? null : resultSolver(volume, currentCurrency, coin, currencies)
     return {
         type: CHANGE_COIN,
@@ -40,15 +37,15 @@ export const changeCoin = (coin: string, volume: number, currentCurrency: string
     }
 }
 
-export const changeValue = (value: number, currentCurrency: string, currentCoin: string, currencies: CurrencyI[]): ChangeValueType => {
-    let isValid = !isNaN(value)
+export const changeValue = (value: number | null, currentCurrency: string, currentCoin: string, currencies: CurrencyI[]): CurrencyTypes => {
+    let isValid = !isNaN(Number(value))
 
-    const calculatedValue = resultSolver(value, currentCurrency, currentCoin, currencies)
+    const calculatedValue = resultSolver(Number(value), currentCurrency, currentCoin, currencies)
 
     return {
         type: CHANGE_VALUE,
         calculatedValue,
-        value: isNaN(value) ? null : value,
+        value: isNaN(Number(value)) ? null : value,
         isValid
     }
 }

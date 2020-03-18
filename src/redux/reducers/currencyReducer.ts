@@ -4,7 +4,8 @@ import {
 
     CHANGE_COIN,
     CHANGE_CURRENCY,
-    CHANGE_VALUE
+    CHANGE_VALUE,
+    CurrencyTypes
 } from "../types/currencyTypes"
 import { InitialStateI } from "../../interfaces/currencyInterfaces";
 
@@ -18,7 +19,7 @@ const initialState: InitialStateI = {
     isLoading: true
 }
 
-export default function currencyReducer(state = initialState, action: any): InitialStateI {
+export default function currencyReducer(state = initialState, action: CurrencyTypes): InitialStateI {
     switch (action.type) {
         case START_CURRENCY:
             return {
